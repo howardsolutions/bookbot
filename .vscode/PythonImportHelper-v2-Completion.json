@@ -1,0 +1,62 @@
+[
+    {
+        "label": "count_words_in_book",
+        "importPath": "stats",
+        "description": "stats",
+        "isExtraImport": true,
+        "detail": "stats",
+        "documentation": {}
+    },
+    {
+        "label": "get_book_text",
+        "importPath": "stats",
+        "description": "stats",
+        "isExtraImport": true,
+        "detail": "stats",
+        "documentation": {}
+    },
+    {
+        "label": "count_characters",
+        "importPath": "stats",
+        "description": "stats",
+        "isExtraImport": true,
+        "detail": "stats",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def main():\n    book_contents = get_book_text('./books/frankenstein.txt')\n    # count_words_in_book(book_contents)\n    char_count = count_characters(book_contents)\n    print(\"\\nCharacter counts in the book:\")\n    print(char_count)\nmain()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_book_text",
+        "kind": 2,
+        "importPath": "stats",
+        "description": "stats",
+        "peekOfCode": "def get_book_text(file_path):\n    with open(file_path) as f:\n        file_contents = f.read()\n        return file_contents\ndef count_words_in_book(contents):\n    list_of_words = contents.split()\n    num_words = len(list_of_words)\n    print(f\"{num_words} words found in the document\")\ndef count_characters(text):\n    char_count = {}",
+        "detail": "stats",
+        "documentation": {}
+    },
+    {
+        "label": "count_words_in_book",
+        "kind": 2,
+        "importPath": "stats",
+        "description": "stats",
+        "peekOfCode": "def count_words_in_book(contents):\n    list_of_words = contents.split()\n    num_words = len(list_of_words)\n    print(f\"{num_words} words found in the document\")\ndef count_characters(text):\n    char_count = {}\n    for char in text.lower():\n        if char in char_count:\n            char_count[char] += 1\n        else:",
+        "detail": "stats",
+        "documentation": {}
+    },
+    {
+        "label": "count_characters",
+        "kind": 2,
+        "importPath": "stats",
+        "description": "stats",
+        "peekOfCode": "def count_characters(text):\n    char_count = {}\n    for char in text.lower():\n        if char in char_count:\n            char_count[char] += 1\n        else:\n            char_count[char] = 1\n    return char_count",
+        "detail": "stats",
+        "documentation": {}
+    }
+]
