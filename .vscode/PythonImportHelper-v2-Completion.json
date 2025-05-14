@@ -1,6 +1,15 @@
 [
     {
-        "label": "get_book_text",
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "get_book_contents",
         "importPath": "stats",
         "description": "stats",
         "isExtraImport": true,
@@ -20,16 +29,16 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    book_contents = get_book_text('./books/frankenstein.txt')\n    sorted_chars = print_book_report(book_contents)\nmain()",
+        "peekOfCode": "def main():\n    path_to_book = sys.argv[1]\n    book_contents = get_book_contents(path_to_book)\n    sorted_chars = print_book_report(book_contents)\nmain()",
         "detail": "main",
         "documentation": {}
     },
     {
-        "label": "get_book_text",
+        "label": "get_book_contents",
         "kind": 2,
         "importPath": "stats",
         "description": "stats",
-        "peekOfCode": "def get_book_text(file_path):\n    with open(file_path) as f:\n        file_contents = f.read()\n        return file_contents\ndef count_words_in_book(contents):\n    list_of_words = contents.split()\n    num_words = len(list_of_words)\n    return num_words\ndef count_characters(text):\n    char_count = {}",
+        "peekOfCode": "def get_book_contents(file_path):\n    with open(file_path) as f:\n        file_contents = f.read()\n        return file_contents\ndef count_words_in_book(contents):\n    list_of_words = contents.split()\n    num_words = len(list_of_words)\n    return num_words\ndef count_characters(text):\n    char_count = {}",
         "detail": "stats",
         "documentation": {}
     },
