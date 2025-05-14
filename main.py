@@ -1,11 +1,8 @@
-from stats import count_words_in_book, get_book_text, count_characters
+from stats import get_book_text, print_book_report
 
 def main():
     book_contents = get_book_text('./books/frankenstein.txt')
-    # count_words_in_book(book_contents)
-    
-    char_count = count_characters(book_contents)
-    print("\nCharacter counts in the book:")
-    print(char_count)
+
+    sorted_chars = print_book_report(book_contents)
 
 main()

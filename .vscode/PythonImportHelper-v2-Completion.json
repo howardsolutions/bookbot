@@ -1,13 +1,5 @@
 [
     {
-        "label": "count_words_in_book",
-        "importPath": "stats",
-        "description": "stats",
-        "isExtraImport": true,
-        "detail": "stats",
-        "documentation": {}
-    },
-    {
         "label": "get_book_text",
         "importPath": "stats",
         "description": "stats",
@@ -16,7 +8,7 @@
         "documentation": {}
     },
     {
-        "label": "count_characters",
+        "label": "print_book_report",
         "importPath": "stats",
         "description": "stats",
         "isExtraImport": true,
@@ -28,7 +20,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    book_contents = get_book_text('./books/frankenstein.txt')\n    # count_words_in_book(book_contents)\n    char_count = count_characters(book_contents)\n    print(\"\\nCharacter counts in the book:\")\n    print(char_count)\nmain()",
+        "peekOfCode": "def main():\n    book_contents = get_book_text('./books/frankenstein.txt')\n    sorted_chars = print_book_report(book_contents)\nmain()",
         "detail": "main",
         "documentation": {}
     },
@@ -37,7 +29,7 @@
         "kind": 2,
         "importPath": "stats",
         "description": "stats",
-        "peekOfCode": "def get_book_text(file_path):\n    with open(file_path) as f:\n        file_contents = f.read()\n        return file_contents\ndef count_words_in_book(contents):\n    list_of_words = contents.split()\n    num_words = len(list_of_words)\n    print(f\"{num_words} words found in the document\")\ndef count_characters(text):\n    char_count = {}",
+        "peekOfCode": "def get_book_text(file_path):\n    with open(file_path) as f:\n        file_contents = f.read()\n        return file_contents\ndef count_words_in_book(contents):\n    list_of_words = contents.split()\n    num_words = len(list_of_words)\n    return num_words\ndef count_characters(text):\n    char_count = {}",
         "detail": "stats",
         "documentation": {}
     },
@@ -46,7 +38,7 @@
         "kind": 2,
         "importPath": "stats",
         "description": "stats",
-        "peekOfCode": "def count_words_in_book(contents):\n    list_of_words = contents.split()\n    num_words = len(list_of_words)\n    print(f\"{num_words} words found in the document\")\ndef count_characters(text):\n    char_count = {}\n    for char in text.lower():\n        if char in char_count:\n            char_count[char] += 1\n        else:",
+        "peekOfCode": "def count_words_in_book(contents):\n    list_of_words = contents.split()\n    num_words = len(list_of_words)\n    return num_words\ndef count_characters(text):\n    char_count = {}\n    for char in text.lower():\n        if char.isalpha():  # Only count alphabetical characters\n            if char in char_count:\n                char_count[char] += 1",
         "detail": "stats",
         "documentation": {}
     },
@@ -55,7 +47,16 @@
         "kind": 2,
         "importPath": "stats",
         "description": "stats",
-        "peekOfCode": "def count_characters(text):\n    char_count = {}\n    for char in text.lower():\n        if char in char_count:\n            char_count[char] += 1\n        else:\n            char_count[char] = 1\n    return char_count",
+        "peekOfCode": "def count_characters(text):\n    char_count = {}\n    for char in text.lower():\n        if char.isalpha():  # Only count alphabetical characters\n            if char in char_count:\n                char_count[char] += 1\n            else:\n                char_count[char] = 1\n    return char_count\ndef print_book_report(book_contents):",
+        "detail": "stats",
+        "documentation": {}
+    },
+    {
+        "label": "print_book_report",
+        "kind": 2,
+        "importPath": "stats",
+        "description": "stats",
+        "peekOfCode": "def print_book_report(book_contents):\n    characters_dict = count_characters(book_contents)\n    char_list = []\n    for char, count in characters_dict.items():\n        char_list.append({\"char\": char, \"count\": count})\n    char_list.sort(reverse=True, key=lambda x: x[\"count\"])\n    print(\"============ BOOKBOT ============\")\n    print(\"Analyzing book found at books/frankenstein.txt...\")\n    print(\"----------- Word Count ----------\")\n    print(f\"Found {count_words_in_book(book_contents)} total words\")",
         "detail": "stats",
         "documentation": {}
     }
